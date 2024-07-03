@@ -1,0 +1,13 @@
+File ID	File Name	Data Category	Data Type	Project ID	Case ID	Sample ID	Sample Type
+1e1c4483-b6a8-4688-b981-eb529967db5b	e743a4db-b59c-4cfa-a789-e9af17f1dff5_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A020	TCGA-AG-A020-11A	Solid Tissue Normal
+9d3549df-9d01-4984-947b-d02e4315bf4e	e4113187-5782-4590-80fb-ccd833b933d9_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A036	TCGA-AG-A036-11A	Solid Tissue Normal
+fdd71613-6712-4365-b488-206e0474963a	e743a4db-b59c-4cfa-a789-e9af17f1dff5_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A020	TCGA-AG-A020-11A	Solid Tissue Normal
+b4cc12e0-018a-4006-ad59-eaa73e1ab97a	97aecb4a-3406-4232-8466-2f751d42c721_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A02N	TCGA-AG-A02N-11A	Solid Tissue Normal
+3a9fb86b-fa95-4e31-b7b6-fa2a7cc5d64c	206fcbcd-bdc8-4373-8e6a-89c50c20c83c_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A01W	TCGA-AG-A01W-11A	Solid Tissue Normal
+cdbbf9bf-ba0b-4859-8a11-685e4c379290	206fcbcd-bdc8-4373-8e6a-89c50c20c83c_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A01W	TCGA-AG-A01W-11A	Solid Tissue Normal
+679208bd-e1e2-436a-8f6e-b223a88971ec	c130aa97-6a29-4a19-a8f5-ccc474b753ea_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-3731	TCGA-AG-3731-11A	Solid Tissue Normal
+be4da608-e0ca-4b4a-943a-57b15d086658	ce8c3dd4-86d1-4732-9218-9c9b6fd83b78_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A01Y	TCGA-AG-A01Y-11A	Solid Tissue Normal
+97a1fd28-d0c5-4292-820c-fe1cff161ba3	97aecb4a-3406-4232-8466-2f751d42c721_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A02N	TCGA-AG-A02N-11A	Solid Tissue Normal
+df9b62ee-4158-45ba-9115-3c797a632646	c130aa97-6a29-4a19-a8f5-ccc474b753ea_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-3731	TCGA-AG-3731-11A	Solid Tissue Normal
+910dadb1-9d72-4a78-836a-b29d7e10462c	ce8c3dd4-86d1-4732-9218-9c9b6fd83b78_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A01Y	TCGA-AG-A01Y-11A	Solid Tissue Normal
+c3e823cc-04c8-452b-9379-f86c08e839ff	e4113187-5782-4590-80fb-ccd833b933d9_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-READ	TCGA-AG-A036	TCGA-AG-A036-11A	Solid Tissue Normal

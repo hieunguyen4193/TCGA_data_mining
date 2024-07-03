@@ -1,0 +1,21 @@
+File ID	File Name	Data Category	Data Type	Project ID	Case ID	Sample ID	Sample Type
+0162cc72-cb3f-4723-b4d2-400725739ccb	64eb10e2-e930-4735-b5dc-9521a5def125_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-H6-A45N	TCGA-H6-A45N-11A	Solid Tissue Normal
+3f3b9630-de54-4f16-9e0c-7c4be189a2a0	64eb10e2-e930-4735-b5dc-9521a5def125_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-H6-A45N	TCGA-H6-A45N-11A	Solid Tissue Normal
+7a21ff65-40f5-4708-8f15-5cb480d5f1f1	4929682d-2530-44c3-8dbe-7e87938b5c5f_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-HV-A5A3	TCGA-HV-A5A3-11A	Solid Tissue Normal
+854f409f-41ee-4350-90b6-d0ec34384e74	4929682d-2530-44c3-8dbe-7e87938b5c5f_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-HV-A5A3	TCGA-HV-A5A3-11A	Solid Tissue Normal
+7851a2d7-612f-433b-8d74-9feb30b4c1fd	fe02e7cb-505a-4bf9-b07f-bfaabc64c0d9_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5926	TCGA-FZ-5926-11A	Solid Tissue Normal
+a0c0343c-d437-4f39-8ccf-0ea79cf9116e	8ed513f8-410f-479b-9124-5caa5830283d_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-H6-8124	TCGA-H6-8124-11A	Solid Tissue Normal
+236791ea-c4c6-4ee9-abf7-00b542ce0744	8ed513f8-410f-479b-9124-5caa5830283d_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-H6-8124	TCGA-H6-8124-11A	Solid Tissue Normal
+f4234eb1-858a-457c-8af7-417599341d92	84c283bf-5c9c-406b-94d4-b267b41f08cc_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5923	TCGA-FZ-5923-11A	Solid Tissue Normal
+1e6d7ddc-af47-4ec0-9f5c-fd224f918181	84c283bf-5c9c-406b-94d4-b267b41f08cc_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5923	TCGA-FZ-5923-11A	Solid Tissue Normal
+d4766fc0-2786-43c8-b852-397106d1c043	3c9e7a5d-c3f0-4c59-b35d-9e0c2896274e_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-YB-A89D	TCGA-YB-A89D-11A	Solid Tissue Normal
+16258e5c-c1b1-4505-b8be-07951e20b5cd	f2cbcaab-f9ec-4842-9111-f0a5401e13ce_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5922	TCGA-FZ-5922-11A	Solid Tissue Normal
+253ccf7b-f01c-4abe-b68f-9d429f756c1e	3c9e7a5d-c3f0-4c59-b35d-9e0c2896274e_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-YB-A89D	TCGA-YB-A89D-11A	Solid Tissue Normal
+d7b0d4ae-5e7f-4db6-b20d-a38496ee658d	d3122536-f09f-4291-b7eb-0a8ab4e166b3_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5919	TCGA-FZ-5919-11A	Solid Tissue Normal
+ead347d6-1723-410f-9c0e-fe309389ace0	d3122536-f09f-4291-b7eb-0a8ab4e166b3_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5919	TCGA-FZ-5919-11A	Solid Tissue Normal
+8417dc2a-ab0d-4f46-8574-1a88ea4aa4b7	fe02e7cb-505a-4bf9-b07f-bfaabc64c0d9_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5926	TCGA-FZ-5926-11A	Solid Tissue Normal
+d32644e1-0f2b-4f70-906e-cde35e33eece	0bf08059-e7df-4b4b-b1df-7ea29ac6040a_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5924	TCGA-FZ-5924-11A	Solid Tissue Normal
+1264da4b-66db-4bc2-859e-a8780a11aa37	0bf08059-e7df-4b4b-b1df-7ea29ac6040a_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5924	TCGA-FZ-5924-11A	Solid Tissue Normal
+43937ebf-6372-4678-8289-11c86ba00084	98810f81-5422-4407-8029-43f27cb09f4a_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5920	TCGA-FZ-5920-11A	Solid Tissue Normal
+898c05a4-f7a2-4349-a4a8-f24223c0316a	98810f81-5422-4407-8029-43f27cb09f4a_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5920	TCGA-FZ-5920-11A	Solid Tissue Normal
+25e1e061-f241-4402-aa77-6cd92235896c	f2cbcaab-f9ec-4842-9111-f0a5401e13ce_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-PAAD	TCGA-FZ-5922	TCGA-FZ-5922-11A	Solid Tissue Normal

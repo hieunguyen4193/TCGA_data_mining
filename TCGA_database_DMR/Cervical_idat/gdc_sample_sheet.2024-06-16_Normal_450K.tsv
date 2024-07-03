@@ -1,0 +1,7 @@
+File ID	File Name	Data Category	Data Type	Project ID	Case ID	Sample ID	Sample Type
+eb2b132e-1235-41f9-8f08-81e62ebf9cf5	48276946-5e21-4017-be91-56e4c2890930_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-CESC	TCGA-MY-A5BF	TCGA-MY-A5BF-11A	Solid Tissue Normal
+5f97c44b-052b-4163-8ccc-70629aeecfce	48276946-5e21-4017-be91-56e4c2890930_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-CESC	TCGA-MY-A5BF	TCGA-MY-A5BF-11A	Solid Tissue Normal
+82602419-ab55-4e18-a079-412f03ffb8c6	486f3eaf-3467-42a7-b000-ecfd565abcd6_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-CESC	TCGA-FU-A3EO	TCGA-FU-A3EO-11A	Solid Tissue Normal
+5dfc42ad-3d33-451b-b776-8583d0309185	486f3eaf-3467-42a7-b000-ecfd565abcd6_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-CESC	TCGA-FU-A3EO	TCGA-FU-A3EO-11A	Solid Tissue Normal
+92390e22-4900-4f8c-afb2-6ff91451a7fc	4003d6c7-012d-4e3e-a2ea-1a6ec5cf270f_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-CESC	TCGA-HM-A3JJ	TCGA-HM-A3JJ-11A	Solid Tissue Normal
+54a50514-98ed-43a4-9651-cf42cfa16a8c	4003d6c7-012d-4e3e-a2ea-1a6ec5cf270f_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-CESC	TCGA-HM-A3JJ	TCGA-HM-A3JJ-11A	Solid Tissue Normal

@@ -1,0 +1,21 @@
+File ID	File Name	Data Category	Data Type	Project ID	Case ID	Sample ID	Sample Type
+054a5bad-67ef-4a07-a96a-e7221929e5ec	df1bf8bf-bd0e-4a45-b7ca-43b0fb9579e2_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-OY-A56P	TCGA-OY-A56P-01A	Primary Tumor
+dc5c268e-a40c-4ff8-89e6-d29fccf067ba	df1bf8bf-bd0e-4a45-b7ca-43b0fb9579e2_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-OY-A56P	TCGA-OY-A56P-01A	Primary Tumor
+daa9d242-6926-4c0e-ae63-0f63da1c0656	ea17b6f2-7165-4fdb-be47-3a4b5455f470_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-OY-A56Q	TCGA-OY-A56Q-01A	Primary Tumor
+8d257cda-e0af-479c-8679-bb811dbcffa0	011c0838-9251-4715-b374-25f2dd081ced_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-13-A5FU	TCGA-13-A5FU-01A	Primary Tumor
+c6938d45-27ca-48ea-a7f0-0e74e5d81c3c	5ebaa6ed-7177-40a1-89a8-998f9844e113_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-5X-AA5U	TCGA-5X-AA5U-01A	Primary Tumor
+5d0d20f0-1001-4ed0-b51a-f40e16973063	5ebaa6ed-7177-40a1-89a8-998f9844e113_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-5X-AA5U	TCGA-5X-AA5U-01A	Primary Tumor
+d655bb2d-5d35-44ba-ad68-360c7124cc71	403a9d13-6ae3-4593-82fa-ee1e0b614462_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-3P-A9WA	TCGA-3P-A9WA-01A	Primary Tumor
+fcbd59b8-bb70-4c7e-ae80-4a0b41b3c867	403a9d13-6ae3-4593-82fa-ee1e0b614462_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-3P-A9WA	TCGA-3P-A9WA-01A	Primary Tumor
+a88f0256-156d-46e9-b8b9-1e3be22baff4	011c0838-9251-4715-b374-25f2dd081ced_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-13-A5FU	TCGA-13-A5FU-01A	Primary Tumor
+d98f3d2e-6a0a-42cc-aee1-23e48d15460d	c3db0ea7-a753-4634-961e-670b5411ab81_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-59-A5PD	TCGA-59-A5PD-01A	Primary Tumor
+a2ece3c7-c44e-403f-a073-b7126e9e27fe	db8d109a-209f-44b9-ad66-cfbc4f079325_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-29-A5NZ	TCGA-29-A5NZ-01A	Primary Tumor
+6ac89771-2cb2-4758-96b1-17027d57bc02	a7ef9041-4a48-435a-b631-c2874fef705c_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-VG-A8LO	TCGA-VG-A8LO-01A	Primary Tumor
+85d421b5-1394-417f-935c-133613e7e527	c3db0ea7-a753-4634-961e-670b5411ab81_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-59-A5PD	TCGA-59-A5PD-01A	Primary Tumor
+9799f042-8d74-4ca0-9573-98eb5187e54a	a7ef9041-4a48-435a-b631-c2874fef705c_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-VG-A8LO	TCGA-VG-A8LO-01A	Primary Tumor
+b2708bf4-1caf-45ce-84a4-f1b867b8c0aa	db8d109a-209f-44b9-ad66-cfbc4f079325_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-29-A5NZ	TCGA-29-A5NZ-01A	Primary Tumor
+7175b227-a208-411e-b0bb-3273eda80370	935d29ba-8ee9-407c-827b-d4ebe5214ff9_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-WR-A838	TCGA-WR-A838-01A	Primary Tumor
+fd47cc16-db35-4fc7-bf5f-b9ec18377b35	935d29ba-8ee9-407c-827b-d4ebe5214ff9_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-WR-A838	TCGA-WR-A838-01A	Primary Tumor
+60c1afde-bcd4-4be0-9478-9131c65255a9	56e8d1d7-3bcb-48fa-9128-5b3c9e8f3f45_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-13-A5FT	TCGA-13-A5FT-01A	Primary Tumor
+71381435-c2ac-4c7d-9837-6fdfb328f666	56e8d1d7-3bcb-48fa-9128-5b3c9e8f3f45_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-13-A5FT	TCGA-13-A5FT-01A	Primary Tumor
+be094f22-bc04-4e6c-861e-fe91414bdf9b	ea17b6f2-7165-4fdb-be47-3a4b5455f470_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-OV	TCGA-OY-A56Q	TCGA-OY-A56Q-01A	Primary Tumor

@@ -1,0 +1,5 @@
+File ID	File Name	Data Category	Data Type	Project ID	Case ID	Sample ID	Sample Type
+085542cb-36e8-45f9-b33b-edd40c1a507d	0a5596e7-03d0-4f93-93ab-27df6d3dda00_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-STAD	TCGA-BR-6452	TCGA-BR-6452-11A	Solid Tissue Normal
+9251e961-693c-46c6-bc9c-3058913b50cf	0a5596e7-03d0-4f93-93ab-27df6d3dda00_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-STAD	TCGA-BR-6452	TCGA-BR-6452-11A	Solid Tissue Normal
+abcafa0a-2e42-4652-b730-e47656fe4ee2	0d55de2b-faf7-4900-9467-67f2fd122126_noid_Grn.idat	DNA Methylation	Masked Intensities	TCGA-STAD	TCGA-BR-6566	TCGA-BR-6566-11A	Solid Tissue Normal
+a6736a1b-e40b-4a7f-a3d8-703dc77824ad	0d55de2b-faf7-4900-9467-67f2fd122126_noid_Red.idat	DNA Methylation	Masked Intensities	TCGA-STAD	TCGA-BR-6566	TCGA-BR-6566-11A	Solid Tissue Normal

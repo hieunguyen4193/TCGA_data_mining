@@ -1,0 +1,3 @@
+id	filename	md5	size	state
+7f96d726-e003-4d7a-9323-3b0cab88f8f7	dfda480b-0d19-441a-964a-adc3f43ccce5_noid_Grn.idat	dd450c04ce9647072f62c7b800f2a4eb	719637	released
+6e2d468a-907a-4370-b1ca-6e510e1f8c0d	dfda480b-0d19-441a-964a-adc3f43ccce5_noid_Red.idat	169e9a1e59aac3c1a3f9c3f63225baf6	719637	released
