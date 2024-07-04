@@ -12,15 +12,20 @@ library(DMRcate)
 library(ggpubr)
 library(RColorBrewer)
 
-path.to.project.src <- "/home/hieunguyen/CRC1382/src/TCGA_data_mining"
+# path.to.project.src <- "/home/hieunguyen/CRC1382/src/TCGA_data_mining"
+path.to.project.src <- "/media/hieunguyen/HNSD01/src/TCGA_data_mining"
+
 infodir <- file.path(path.to.project.src, "TCGA_database_DMR")
-outdir <- "/media/outdir"
+
+# outdir <- "/media/outdir"
+outdir <- "/media/hieunguyen/HNSD01/outdir"
 
 PROJECT <- "TCGA_methyl_panel"
 output.version <- "20240704"
 data.version <- "full"
 
-path.to.main.input <- "/media/data/TCGA"
+# path.to.main.input <- "/media/data/TCGA"
+path.to.main.input <- "/media/hieunguyen/HNSD01/outdir/TCGA_methyl_panel/input"
 path.to.main.output <- file.path(outdir, PROJECT, sprintf("data_%s", data.version), output.version)
 path.to.07.output <- file.path(path.to.main.output, "07_output")
 dir.create(path.to.07.output, showWarnings = FALSE, recursive = TRUE)
@@ -56,55 +61,61 @@ count.sampledf <- table(meta.data$label, meta.data$tumor_or_normal) %>% as.data.
 ##### RUN MAIN TEST BY LIMMA, DML
 #####----------------------------------------------------------------------#####
 for (group in subset(count.sampledf, count.sampledf$test == "yes")$label){
-  print(sprintf("working on group %s, test group1 = %s vs others", group, group))  
-  group1 <- tumor.samples[[group]]
-  group2 <- setdiff(colnames(bVals), group1)
-  
-  input.metadata <- data.frame(sample = c(group1, group2), 
-                               label = c(
-                                 to_vec(for(item in seq(1, length(group1))) "group1"),
-                                 to_vec(for(item in seq(1, length(group2))) "group2")
-                               ))
-  
-  ann450k <- getAnnotation(IlluminaHumanMethylation450kanno.ilmn12.hg19)
-  
-  # this is the factor of interest
-  g <- factor(input.metadata$label, levels = c("group1", "group2"))
-  # use the above to create a design matrix
-  design <- model.matrix(~0+label, data=input.metadata)
-  colnames(design) <- levels(g)
-  fit <- lmFit(bVals[, input.metadata$sample], design)
-  # create a contrast matrix for specific comparisons
-  contMatrix <- makeContrasts(group1-group2,
-                              levels=design)
-  fit2 <- contrasts.fit(fit, contMatrix)
-  fit2 <- eBayes(fit2)
-  
-  ann450kSub <- ann450k[match(rownames(bVals[, input.metadata$sample]), ann450k$Name), c(1:4,12:19,24:ncol(ann450k))]
-  DMPs <- topTable(fit2, num=Inf, coef=1, genelist=ann450kSub)
-  
-  
-  plot_cpg_two_groups <- function(cpg){
-    # cpg <- rownames(DMPs)[1]
-    plotdf <- bVals[cpg, input.metadata$sample] %>% as.data.frame()
-    plotdf$label <- input.metadata$label
-    colnames(plotdf) <- c("cpg", "label")
-    p <- plotdf %>% ggplot(aes(x = label, y = cpg, color = label)) + geom_boxplot() + geom_jitter(width = 0.1) + theme_pubr()
-    return(p)  
+  if (file.exists(file.path(path.to.07.output, sprintf("finished_%s.csv", group))) == FALSE){
+    print(sprintf("working on group %s, test group1 = %s vs others", group, group))  
+    group1 <- tumor.samples[[group]]
+    group2 <- setdiff(colnames(bVals), group1)
+    
+    input.metadata <- data.frame(sample = c(group1, group2), 
+                                 label = c(
+                                   to_vec(for(item in seq(1, length(group1))) "group1"),
+                                   to_vec(for(item in seq(1, length(group2))) "group2")
+                                 ))
+    
+    ann450k <- getAnnotation(IlluminaHumanMethylation450kanno.ilmn12.hg19)
+    
+    # this is the factor of interest
+    g <- factor(input.metadata$label, levels = c("group1", "group2"))
+    # use the above to create a design matrix
+    design <- model.matrix(~0+label, data=input.metadata)
+    colnames(design) <- levels(g)
+    fit <- lmFit(bVals[, input.metadata$sample], design)
+    # create a contrast matrix for specific comparisons
+    contMatrix <- makeContrasts(group1-group2,
+                                levels=design)
+    fit2 <- contrasts.fit(fit, contMatrix)
+    fit2 <- eBayes(fit2)
+    
+    ann450kSub <- ann450k[match(rownames(bVals[, input.metadata$sample]), ann450k$Name), c(1:4,12:19,24:ncol(ann450k))]
+    DMPs <- topTable(fit2, num=Inf, coef=1, genelist=ann450kSub)
+    
+    
+    plot_cpg_two_groups <- function(cpg){
+      # cpg <- rownames(DMPs)[1]
+      plotdf <- bVals[cpg, input.metadata$sample] %>% as.data.frame()
+      plotdf$label <- input.metadata$label
+      colnames(plotdf) <- c("cpg", "label")
+      p <- plotdf %>% ggplot(aes(x = label, y = cpg, color = label)) + geom_boxplot() + geom_jitter(width = 0.1) + theme_pubr()
+      return(p)  
+    }
+    
+    #####----------------------------------------------------------------------#####
+    ##### RUN MAIN TEST BY LIMMA, DMR
+    #####----------------------------------------------------------------------#####
+    myAnnotation <- cpg.annotate(object = bVals[, input.metadata$sample], datatype = "array", what = "Beta", 
+                                 analysis.type = "differential", design = design, 
+                                 contrasts = TRUE, cont.matrix = contMatrix, 
+                                 coef = "group1 - group2", arraytype = "450K")
+    
+    DMRs <- dmrcate(myAnnotation, lambda=1000, C=2, min.cpgs = 5)
+    results.ranges <- extractRanges(DMRs)
+    DMRdf <- data.frame(results.ranges)
+    
+    writexl::write_xlsx(DMPs, file.path(path.to.07.output, sprintf("DMP_%s.xlsx", group)))
+    writexl::write_xlsx(DMRdf, file.path(path.to.07.output, sprintf("DMR_%s.xlsx", group)))
+    write.csv(data.frame(status = c("finished for cases %s", group)), file.path(path.to.07.output, sprintf("finished_%s.csv", group)))
+  } else {
+    print(sprintf("Group %s fininshed!", group))
   }
-  
-  #####----------------------------------------------------------------------#####
-  ##### RUN MAIN TEST BY LIMMA, DMR
-  #####----------------------------------------------------------------------#####
-  myAnnotation <- cpg.annotate(object = bVals[, input.metadata$sample], datatype = "array", what = "Beta", 
-                               analysis.type = "differential", design = design, 
-                               contrasts = TRUE, cont.matrix = contMatrix, 
-                               coef = "group1 - group2", arraytype = "450K")
-  
-  DMRs <- dmrcate(myAnnotation, lambda=1000, C=2, min.cpgs = 5)
-  results.ranges <- extractRanges(DMRs)
-  DMRdf <- data.frame(results.ranges)
-  
-  writexl::write_xlsx(DMPs, file.path(path.to.07.output, sprintf("DMP_%s.xlsx", group)))
-  writexl::write_xlsx(DMRdf, file.path(path.to.07.output, sprintf("DMR_%s.xlsx", group)))
 }
+

@@ -12,15 +12,20 @@ library(DMRcate)
 library(ggpubr)
 library(RColorBrewer)
 
-path.to.project.src <- "/home/hieunguyen/CRC1382/src/TCGA_data_mining"
+# path.to.project.src <- "/home/hieunguyen/CRC1382/src/TCGA_data_mining"
+path.to.project.src <- "/media/hieunguyen/HNSD01/src/TCGA_data_mining"
+
 infodir <- file.path(path.to.project.src, "TCGA_database_DMR")
-outdir <- "/media/outdir"
+
+# outdir <- "/media/outdir"
+outdir <- "/media/hieunguyen/HNSD01/outdir"
 
 PROJECT <- "TCGA_methyl_panel"
 output.version <- "20240704"
 data.version <- "full"
 
-path.to.main.input <- "/media/data/TCGA"
+# path.to.main.input <- "/media/data/TCGA"
+path.to.main.input <- "/media/hieunguyen/HNSD01/outdir/TCGA_methyl_panel/input"
 path.to.main.output <- file.path(outdir, PROJECT, sprintf("data_%s", data.version), output.version)
 path.to.06.output <- file.path(path.to.main.output, "06_output")
 dir.create(path.to.06.output, showWarnings = FALSE, recursive = TRUE)
