@@ -7,10 +7,10 @@ library(minfi)
 library(comprehenr)
 library(limma)
 
-infodir <- "/media/hieunguyen/HNSD01/src/TCGA_data_analysis/TCGA_database_DMR"
+infodir <- "/media/hieunguyen/HNSD01/src/TCGA_data_mining/TCGA_database_DMR"
 outdir <- "/media/hieunguyen/HNSD01/outdir"
 raw.data.dir <- "/media/hieunguyen/HNHD01/TCGA_all_idat"
-path.to.project.src <- "/media/hieunguyen/HNSD01/src/TCGA_data_analysis"
+path.to.project.src <- "/media/hieunguyen/HNSD01/src/TCGA_data_mining"
 
 source(file.path(path.to.project.src, "check_methylation_array_type.R"))
 
