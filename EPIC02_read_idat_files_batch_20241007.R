@@ -12,14 +12,16 @@ if ("liftOver" %in% installed.packages() == FALSE){
 library(liftOver)
 
 # BiocManager::install("jokergoo/IlluminaHumanMethylationEPICv2manifest", update = FALSE)
-# install.packages("/media/hieunguyen/HNSD01/Downloads/IlluminaHumanMethylationEPICv2anno.20a1.hg38-master", repos = NULL, type = "source")
+# install.packages("/media/hieunguyen/GSHD_HN01/storage/offline_pkgs/IlluminaHumanMethylationEPICv2anno.20a1.hg38_1.0.0.tar.gz",
+# type = "sources", repos = NULL)
 
 maindir <- "/media/hieunguyen/HNSD01"
 outdir <- file.path(maindir, "outdir")
 PROJECT <- "EPIC"
 output.version <- "20240805"
 data.version <- "20241007"
-path.to.main.input <- file.path(maindir, "storage", PROJECT, data.version)
+path.to.storage <- "/media/hieunguyen/GSHD_HN01/storage"
+path.to.main.input <- file.path(path.to.storage, PROJECT, data.version)
 path.to.main.output <- file.path(outdir, PROJECT, sprintf("data_%s", data.version), output.version)
 path.to.02.output <- file.path(path.to.main.output, "EPIC_02_output")
 dir.create(path.to.02.output, showWarnings = FALSE, recursive = TRUE)
@@ -37,15 +39,15 @@ if (file.exists(file.path(path.to.02.output, "idat.obj.rds")) == FALSE){
 
 idat.obj@annotation <- c(array = "IlluminaHumanMethylationEPICv2", annotation = "20a1.hg38")
 
-if (file.exists(file.path(path.to.02.output, "detP.sampling_test.rds")) == FALSE){
+if (file.exists(file.path(path.to.02.output, "detP.rds")) == FALSE){
   detP <- detectionP(idat.obj)
-  saveRDS(detP, file.path(path.to.02.output, "detP.sampling_test.rds"))
+  saveRDS(detP, file.path(path.to.02.output, "detP.rds"))
 } else {
   print("reading in detP ...")
-  detP <- readRDS(file.path(path.to.02.output, "detP.sampling_test.rds"))
+  detP <- readRDS(file.path(path.to.02.output, "detP.rds"))
 }
 
-if (file.exists(file.path(path.to.02.output, "idat.obj.sampling_test.preprocessQuantile.rds")) == FALSE){
+if (file.exists(file.path(path.to.02.output, "idat.obj.preprocessQuantile.rds")) == FALSE){
   # filter high detection probes
   keep <- colMeans(detP) < 0.05
   idat.obj <- idat.obj[,keep]
@@ -140,8 +142,14 @@ for (sample.id in colnames(bVals)){
   tmpdf <- tmpdf %>% column_to_rownames("type") %>% t()
   resdf <- rbind(resdf, tmpdf)
 }
-
+resdf <- resdf %>% rownames_to_column("SampleCode")
 
 writexl::write_xlsx(resdf, file.path(path.to.02.output, "deconvolution_results_8_Breast_samples.xlsx"))
 
+meta.data <- read.csv("/media/hieunguyen/GSHD_HN01/storage/EPIC/metadata/20241007/idats_metadata.csv")
+meta.data <- meta.data %>% rowwise() %>%
+  mutate(SampleCode = sprintf("%s_%s", Sentrix_ID, Sentrix_Position))
 
+
+setdiff(meta.data$SampleCode, resdf$SampleCode)
+setdiff(resdf$SampleCode, meta.data$SampleCode)
