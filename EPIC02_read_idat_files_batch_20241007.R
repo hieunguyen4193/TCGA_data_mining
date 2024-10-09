@@ -47,7 +47,8 @@ if (file.exists(file.path(path.to.02.output, "detP.rds")) == FALSE){
   detP <- readRDS(file.path(path.to.02.output, "detP.rds"))
 }
 
-if (file.exists(file.path(path.to.02.output, "idat.obj.preprocessQuantile.rds")) == FALSE){
+
+if (file.exists(file.path(path.to.02.output, "mSetSqFlt.rds")) == FALSE){
   # filter high detection probes
   keep <- colMeans(detP) < 0.05
   idat.obj <- idat.obj[,keep]
@@ -62,6 +63,31 @@ if (file.exists(file.path(path.to.02.output, "idat.obj.preprocessQuantile.rds"))
   # remove any probes that have failed in one or more samples
   keep <- rowSums(detP < 0.01) == ncol(mSetSq) 
   mSetSqFlt <- mSetSq[keep,]
+  
+  # get 450k CpG annotation    
+  annEPIC <- getAnnotation(IlluminaHumanMethylationEPICv2anno.20a1.hg38)
+  
+  # remove CpGs/probe in sex chromosomes
+  keep <- !(featureNames(mSetSqFlt) %in% annEPIC$Name[annEPIC$chr %in% c("chrX","chrY")])
+  mSetSqFlt <- mSetSqFlt[keep,]
+  
+  # remove probes with SNPs at CpG site
+  mSetSqFlt <- dropLociWithSnps(mSetSqFlt)
+  
+  # exclude cross reactive probes 
+  dataDirectory <- system.file("extdata", package = "methylationArrayAnalysis")
+  xReactiveProbes <- read.csv(file=paste(dataDirectory,
+                                         "48639-non-specific-probes-Illumina450k.csv",
+                                         sep="/"), stringsAsFactors=FALSE)
+  keep <- !(featureNames(mSetSqFlt) %in% xReactiveProbes$TargetID)
+  mSetSqFlt <- mSetSqFlt[keep,] 
+  
+  # save object mSetSqFlt
+  saveRDS(mSetSqFlt, file.path(path.to.02.output, "mSetSqFlt.rds"))
+  
+} else {
+  print("reading preprocessed quantile data, mSetSq")
+  mSetSqFlt <- readRDS(file.path(path.to.02.output, "mSetSqFlt.rds"))
 }
 
 if (file.exists(file.path(path.to.02.output, "check.csv")) == FALSE){
@@ -104,10 +130,6 @@ if (file.exists(file.path(path.to.02.output, "ann.epic.hg19.csv")) == FALSE){
   ann.epic.hg19 <- read.csv(file.path(path.to.02.output, "ann.epic.hg19.csv"))
 }
 
-ann450k <- read.csv(file.path(path.to.project.src, "ann450kdf.txt"), sep = "\t", header = FALSE) %>%
-  rowwise() %>%
-  mutate(pos = sprintf("%s_%s", V1, V2))
-
 ##### modify the input bVals matrix and the atlas, get shared regions/probes 
 # to do deconvolution
 
@@ -144,12 +166,10 @@ for (sample.id in colnames(bVals)){
 }
 resdf <- resdf %>% rownames_to_column("SampleCode")
 
-writexl::write_xlsx(resdf, file.path(path.to.02.output, "deconvolution_results_8_Breast_samples.xlsx"))
-
 meta.data <- read.csv("/media/hieunguyen/GSHD_HN01/storage/EPIC/metadata/20241007/idats_metadata.csv")
-meta.data <- meta.data %>% rowwise() %>%
+meta.data <- meta.data %>% 
+  rowwise() %>%
   mutate(SampleCode = sprintf("%s_%s", Sentrix_ID, Sentrix_Position))
 
-
-setdiff(meta.data$SampleCode, resdf$SampleCode)
-setdiff(resdf$SampleCode, meta.data$SampleCode)
+resdf <- merge(resdf, meta.data, by.x = "SampleCode", by.y = "SampleCode")
+writexl::write_xlsx(resdf, file.path(path.to.02.output, "deconvolution_results.xlsx"))
