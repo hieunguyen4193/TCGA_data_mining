@@ -259,20 +259,20 @@ perform_DMR_with_DMRcate <- function(group1, group2, inputdf, outputdir, pval_th
   # )
 }
 
-perform_DMR_with_DMRcate(pbmc.crc, pbmc.control, bVals, file.path(path.to.04.output, "bVals", "CRC_vs_control"), 0.05, "Beta")
-perform_DMR_with_DMRcate(pbmc.lung, pbmc.control, bVals, file.path(path.to.04.output, "bVals", "Lung_vs_control"), 0.05, "Beta")
-perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, bVals, file.path(path.to.04.output, "bVals", "CRC_Lung_vs_control"), 0.05, "Beta")
-perform_DMR_with_DMRcate(breast.cancer, breast.control, bVals, file.path(path.to.04.output, "bVals", "Breast_vs_BreastControl"), 1e-10, TRUE, "Beta")
+perform_DMR_with_DMRcate(pbmc.crc, pbmc.control, bVals, file.path(path.to.04.output, "bVals", "CRC_vs_control"), 0.05, "Beta", FALSE)
+perform_DMR_with_DMRcate(pbmc.lung, pbmc.control, bVals, file.path(path.to.04.output, "bVals", "Lung_vs_control"), 0.05, "Beta", FALSE)
+perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, bVals, file.path(path.to.04.output, "bVals", "CRC_Lung_vs_control"), 0.05, "Beta", FALSE)
+perform_DMR_with_DMRcate(breast.cancer, breast.control, bVals, file.path(path.to.04.output, "bVals", "Breast_vs_BreastControl"), 1e-10, "Beta", TRUE)
 
-perform_DMR_with_DMRcate(pbmc.crc, pbmc.control, log2(bVals), file.path(path.to.04.output, "bVals", "CRC_vs_control"), 0.05, "Beta")
-perform_DMR_with_DMRcate(pbmc.lung, pbmc.control, log2(bVals), file.path(path.to.04.output, "bVals", "Lung_vs_control"), 0.05, "Beta")
-perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, log2(bVals), file.path(path.to.04.output, "bVals", "CRC_Lung_vs_control"), 0.05, "Beta")
-perform_DMR_with_DMRcate(breast.cancer, breast.control, log2(bVals), file.path(path.to.04.output, "bVals", "Breast_vs_BreastControl"), 1e-10, TRUE, "Beta")
+perform_DMR_with_DMRcate(pbmc.crc, pbmc.control, log2(bVals), file.path(path.to.04.output, "bVals_log", "CRC_vs_control"), 0.05, "Beta", FALSE)
+perform_DMR_with_DMRcate(pbmc.lung, pbmc.control, log2(bVals), file.path(path.to.04.output, "bVals_log", "Lung_vs_control"), 0.05, "Beta", FALSE)
+perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, log2(bVals), file.path(path.to.04.output, "bVals_log", "CRC_Lung_vs_control"), 0.05, "Beta", FALSE)
+perform_DMR_with_DMRcate(breast.cancer, breast.control, log2(bVals), file.path(path.to.04.output, "bVals_log", "Breast_vs_BreastControl"), 1e-10, "Beta", FALSE)
 
-perform_DMR_with_DMRcate(pbmc.crc, pbmc.control, mVals, file.path(path.to.04.output, "mVals", "CRC_vs_control"), 0.05, "M")
-perform_DMR_with_DMRcate(pbmc.lung, pbmc.control, mVals, file.path(path.to.04.output, "mVals", "Lung_vs_control"), 0.05, "M")
-perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, mVals, file.path(path.to.04.output, "mVals", "CRC_Lung_vs_control"), 0.05, "M")
-perform_DMR_with_DMRcate(breast.cancer, breast.control, mVals, file.path(path.to.04.output, "mVals", "Breast_vs_BreastControl"), 1e-10, TRUE, "M")
+perform_DMR_with_DMRcate(pbmc.crc, pbmc.control, mVals, file.path(path.to.04.output, "mVals", "CRC_vs_control"), 0.05, "M", FALSE)
+perform_DMR_with_DMRcate(pbmc.lung, pbmc.control, mVals, file.path(path.to.04.output, "mVals", "Lung_vs_control"), 0.05, "M", FALSE)
+perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, mVals, file.path(path.to.04.output, "mVals", "CRC_Lung_vs_control"), 0.05, "M", FALSE)
+perform_DMR_with_DMRcate(breast.cancer, breast.control, mVals, file.path(path.to.04.output, "mVals", "Breast_vs_BreastControl"), 1e-10, "M", TRUE)
 
 
-
+group1, group2, inputdf, outputdir, pval_thres, beta_or_M, run_GO_KEGG = FALSE

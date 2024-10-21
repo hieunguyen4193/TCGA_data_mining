@@ -17,6 +17,8 @@ library(liftOver)
 # BiocManager::install("methylationArrayAnalysis", update = FALSE)
 # install.packages("nnls")
 
+library("methylationArrayAnalysis")
+
 maindir <- "/media/hieunguyen/HNSD01"
 # maindir <- "/media/hieunguyen/GSHD_HN01"
 

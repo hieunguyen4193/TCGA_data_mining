@@ -38,7 +38,7 @@ input.vals <- list(
   mVals = readRDS(file.path(path.to.02.output, "mVals.rds"))
   )
 
-input.vals[["bVals_log"]] <- log2(bVals)
+input.vals[["bVals_log"]] <- log2(readRDS(file.path(path.to.02.output, "bVals.rds")))
 
 for (input.type in names(input.vals)){
   path.to.03.output <- file.path(path.to.main.output, "EPIC_03_output", input.type)
