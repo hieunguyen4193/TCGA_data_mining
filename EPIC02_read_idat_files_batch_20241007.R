@@ -14,11 +14,15 @@ library(liftOver)
 # BiocManager::install("jokergoo/IlluminaHumanMethylationEPICv2manifest", update = FALSE)
 # install.packages("/media/hieunguyen/GSHD_HN01/storage/offline_pkgs/IlluminaHumanMethylationEPICv2anno.20a1.hg38_1.0.0.tar.gz",
 # type = "sources", repos = NULL)
+# BiocManager::install("methylationArrayAnalysis", update = FALSE)
+# install.packages("nnls")
 
 maindir <- "/media/hieunguyen/HNSD01"
+# maindir <- "/media/hieunguyen/GSHD_HN01"
+
 outdir <- file.path(maindir, "outdir")
 PROJECT <- "EPIC"
-output.version <- "20240805"
+output.version <- "20241020"
 data.version <- "20241007"
 path.to.storage <- "/media/hieunguyen/GSHD_HN01/storage"
 path.to.main.input <- file.path(path.to.storage, PROJECT, data.version)
@@ -172,4 +176,9 @@ meta.data <- meta.data %>%
   mutate(SampleCode = sprintf("%s_%s", Sentrix_ID, Sentrix_Position))
 
 resdf <- merge(resdf, meta.data, by.x = "SampleCode", by.y = "SampleCode")
+resdf$prediction <- unlist(lapply(seq(1, nrow(resdf)), function(i){
+  x <- resdf[i, ][tissue.types]
+  return(names(x)[x == max(x)])
+}))
+
 writexl::write_xlsx(resdf, file.path(path.to.02.output, "deconvolution_results.xlsx"))
