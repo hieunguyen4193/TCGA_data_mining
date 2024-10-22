@@ -11,11 +11,11 @@ if ("liftOver" %in% installed.packages() == FALSE){
 }
 library(liftOver)
 
-# BiocManager::install("jokergoo/IlluminaHumanMethylationEPICv2manifest", update = FALSE)
-# install.packages("/media/hieunguyen/GSHD_HN01/storage/offline_pkgs/IlluminaHumanMethylationEPICv2anno.20a1.hg38_1.0.0.tar.gz",
-#                  type = "sources", repos = NULL)
-# BiocManager::install("methylationArrayAnalysis", update = FALSE)
-# install.packages("nnls")
+BiocManager::install("jokergoo/IlluminaHumanMethylationEPICv2manifest", update = FALSE)
+install.packages("/media/hieunguyen/GSHD_HN01/storage/offline_pkgs/IlluminaHumanMethylationEPICv2anno.20a1.hg38_1.0.0.tar.gz",
+                 type = "sources", repos = NULL)
+BiocManager::install("methylationArrayAnalysis", update = FALSE)
+install.packages("nnls")
 
 library("IlluminaHumanMethylationEPICv2anno.20a1.hg38")
 
@@ -145,6 +145,9 @@ for (input.type in names(input.vals)){
   kegg.res <- enrichKEGG(gene = subset(convertdf, convertdf$SYMBOL %in% sig.genes)$ENTREZID,
                          organism = 'hsa',
                          pvalueCutoff = 0.05)
+  
+  write.csv(data.frame(kegg.res), file.path(path.to.03.output, "KEGG_res_Breast_vs_Control.csv"))
+  write.csv(data.frame(go.res), file.path(path.to.03.output, "GO_res_Breast_vs_Control.csv"))
   
   dotplot.kegg <- dotplot(kegg.res, showCategory=30) + ggtitle("dotplot for ORA")
   dotplot.go <- dotplot(go.res, showCategory=30) + ggtitle("dotplot for ORA")

@@ -238,7 +238,8 @@ perform_DMR_with_DMRcate <- function(group1, group2, inputdf, outputdir, pval_th
     kegg.res <- enrichKEGG(gene = subset(convertdf, convertdf$SYMBOL %in% sig.genes)$ENTREZID,
                            organism = 'hsa',
                            pvalueCutoff = 0.05)
-    
+    write.csv(data.frame(kegg.res), file.path(outputdir, "KEGG_res.csv"))
+    write.csv(data.frame(go.res), file.path(outputdir, "GO_res.csv"))
     dotplot.kegg <- dotplot(kegg.res, showCategory=30) + ggtitle("dotplot for ORA")
     ggsave(plot = dotplot.kegg, filename = "dotplot_KEGG_DMR_genes.svg", path = outputdir, device = "svg", width = 14, height = 10)
     print(sprintf("DMR KEGG dotplot is saved at %s", file.path(outputdir, "dotplot_KEGG_DMR_genes.svg")))
@@ -275,4 +276,3 @@ perform_DMR_with_DMRcate(pbmc.cancer, pbmc.control, mVals, file.path(path.to.04.
 perform_DMR_with_DMRcate(breast.cancer, breast.control, mVals, file.path(path.to.04.output, "mVals", "Breast_vs_BreastControl"), 1e-10, "M", TRUE)
 
 
-group1, group2, inputdf, outputdir, pval_thres, beta_or_M, run_GO_KEGG = FALSE
